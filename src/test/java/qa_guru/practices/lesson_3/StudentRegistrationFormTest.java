@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_2;
+package qa_guru.practices.lesson_3;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
@@ -89,6 +89,33 @@ public class StudentRegistrationFormTest {
                 textCaseSensitive("Address " + address),
                 textCaseSensitive("State and City " + state + " " + city)
                 );
+        $("#closeLargeModal").click();
+        $(".table-responsive").shouldNotBe(visible);
+    }
+
+    @Test
+    void successFillAllRequiredFieldsTest() {
+        open("/automation-practice-form");
+        $(".main-header").shouldHave(text("Practice Form"));
+
+        String firstName = "testFirstName";
+        $("#firstName").setValue(firstName);
+        String lastName = "testLastName";
+        $("#lastName").setValue(lastName);
+        String gender = "Other";
+        $(byText(gender)).click();
+        String mobile = "8937583231";
+        $("#userNumber").setValue(mobile);
+
+        $("#submit").scrollTo().click();
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $$(".table-responsive table tbody tr").shouldHave(size(10));
+        $(".table-responsive").shouldHave(
+                textCaseSensitive("Student Name " + firstName + " " + lastName),
+                textCaseSensitive("Gender " + gender),
+                textCaseSensitive("Mobile " + mobile)
+        );
         $("#closeLargeModal").click();
         $(".table-responsive").shouldNotBe(visible);
     }
