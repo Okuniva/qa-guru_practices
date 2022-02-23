@@ -144,9 +144,7 @@ public class StudentRegistrationFormTest {
         $("#dateOfBirthInput").sendKeys("111111111111");
 
         $("#submit").scrollTo().click();
-        $(".table-responsive").shouldNotHave(
-                text("01 January,211111")
-        );
+        $(".table-responsive").shouldBe(visible).shouldNotHave(text("01 January,211111"));
     }
 
     @Test
