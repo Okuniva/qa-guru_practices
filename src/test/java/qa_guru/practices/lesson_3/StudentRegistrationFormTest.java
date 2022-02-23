@@ -70,7 +70,7 @@ public class StudentRegistrationFormTest {
         $("#stateCity-wrapper").find(("#state")).scrollTo().click();
         String state = "NCR";
         $(byText(state)).click();
-        $("#stateCity-wrapper").find(("#city")).click();
+        $("#stateCity-wrapper").find(("#city")).scrollTo().click();
         String city = "Gurgaon";
         $(byText(city)).click();
 
