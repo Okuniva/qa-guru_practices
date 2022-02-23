@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
@@ -118,5 +119,33 @@ public class StudentRegistrationFormTest {
         );
         $("#closeLargeModal").click();
         $(".table-responsive").shouldNotBe(visible);
+    }
+
+    @Test
+    void negativeSendFormWithIncorrectDateTest() {
+        open("/automation-practice-form");
+        $(".main-header").shouldHave(text("Practice Form"));
+
+        String firstName = "testFirstName";
+        $("#firstName").setValue(firstName);
+        String lastName = "testLastName";
+        $("#lastName").setValue(lastName);
+        String gender = "Other";
+        $(byText(gender)).click();
+        String mobile = "8937583231";
+        $("#userNumber").setValue(mobile);
+
+        // set incorrect Date of Birth
+        $("#dateOfBirthInput").click();
+        for (int i = 0; i < 10; i++) {
+            $("#dateOfBirthInput").sendKeys(Keys.BACK_SPACE);
+        }
+        $("#dateOfBirthInput").sendKeys("111111111111");
+
+        $("#submit").scrollTo().click();
+        $(".table-responsive").shouldNotHave(
+                text("01 January,211111")
+        );
+
     }
 }
