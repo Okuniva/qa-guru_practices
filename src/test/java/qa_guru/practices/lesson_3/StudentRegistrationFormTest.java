@@ -3,6 +3,7 @@ package qa_guru.practices.lesson_3;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -65,12 +66,12 @@ public class StudentRegistrationFormTest {
         $("#uploadPicture").uploadFromClasspath(photo);
 
         String address = "399 Jennings Lane Brooklyn, NY 11221";
-        $("#currentAddress").setValue(address);
+        $("#currentAddress").scrollIntoView(true).setValue(address);
 
-        $("#stateCity-wrapper").find(("#state")).scrollTo().click();
+        $("#stateCity-wrapper").scrollIntoView(true).find(("#state")).click();
         String state = "NCR";
         $(byText(state)).click();
-        $("#stateCity-wrapper").find(("#city")).scrollTo().click();
+        $("#stateCity-wrapper").scrollIntoView(true).find(("#city")).click();
         String city = "Gurgaon";
         $(byText(city)).click();
 
