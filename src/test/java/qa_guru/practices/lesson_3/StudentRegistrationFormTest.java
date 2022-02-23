@@ -149,7 +149,7 @@ public class StudentRegistrationFormTest {
     }
 
     @Test
-    void issueWhiteScreenAfterClearDate() {
+    void issueWhiteScreenAfterClearDateTest() {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
 
@@ -157,7 +157,20 @@ public class StudentRegistrationFormTest {
         for (int i = 0; i < 11; i++) {
             $("#dateOfBirthInput").sendKeys(Keys.BACK_SPACE);
         }
+
         $(".main-header").shouldHave(text("Practice Form"));
         $("#dateOfBirthInput").shouldBe(visible);
+    }
+
+    @Test
+    void issueWhiteScreenAfterClearSubjectsTest() {
+        open("/automation-practice-form");
+        $(".main-header").shouldHave(text("Practice Form"));
+
+        // clear Subjects field
+        $("#subjectsInput").sendKeys(Keys.BACK_SPACE);
+
+        $(".main-header").shouldHave(text("Practice Form"));
+        $("#subjectsInput").shouldBe(visible);
     }
 }
