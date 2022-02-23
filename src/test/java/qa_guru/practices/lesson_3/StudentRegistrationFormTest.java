@@ -122,7 +122,7 @@ public class StudentRegistrationFormTest {
     }
 
     @Test
-    void negativeSendFormWithIncorrectDateTest() {
+    void issueSendFormWithIncorrectDateTest() {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
 
@@ -146,6 +146,18 @@ public class StudentRegistrationFormTest {
         $(".table-responsive").shouldNotHave(
                 text("01 January,211111")
         );
+    }
 
+    @Test
+    void issueWhiteScreenAfterClearDate() {
+        open("/automation-practice-form");
+        $(".main-header").shouldHave(text("Practice Form"));
+
+        // clear Date of Birth field
+        for (int i = 0; i < 11; i++) {
+            $("#dateOfBirthInput").sendKeys(Keys.BACK_SPACE);
+        }
+        $(".main-header").shouldHave(text("Practice Form"));
+        $("#dateOfBirthInput").shouldBe(visible);
     }
 }
