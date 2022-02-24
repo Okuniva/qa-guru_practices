@@ -9,7 +9,7 @@ public class CalendarComponent {
         $(".react-datepicker-popper").shouldBe(visible);
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__month-select").selectOption(month);
-        $$(".react-datepicker__day").find(text(day)).click();
+        $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").find(text(day)).click();
         $(".react-datepicker-popper").shouldNotBe(visible);
     }
 }

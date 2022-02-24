@@ -3,7 +3,6 @@ package qa_guru.practices.lesson_3;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -43,12 +42,12 @@ public class StudentRegistrationFormTest {
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker-popper").shouldBe(visible);
-        String year = "1991";
+        String year = "1997";
         $(".react-datepicker__year-select").selectOption(year);
-        String month = "June";
+        String month = "January";
         $(".react-datepicker__month-select").selectOption(month);
-        String day = "19";
-        $$(".react-datepicker__day").find(text(day)).click();
+        String day = "30";
+        $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").find(text(day)).click();
         $(".react-datepicker-popper").shouldNotBe(visible);
 
         String[] subjects = {"Maths", "Computer Science"};
@@ -72,7 +71,7 @@ public class StudentRegistrationFormTest {
         String state = "NCR";
         $(byText(state)).click();
         $("#stateCity-wrapper").scrollIntoView(true).find(("#city")).click();
-        String city = "Gurgaon";
+        String city = "Delhi";
         $(byText(city)).click();
 
         $("#submit").click();
