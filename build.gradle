@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id'io.qameta.allure' version '2.9.6'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.qa-guru.practices'
