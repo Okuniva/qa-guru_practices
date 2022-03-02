@@ -39,8 +39,7 @@ public class AllureLambdaTest {
         step("Проверяем что существует Issue с номером " + ISSUE_NUMBER, () -> {
             $(withText("#68")).should(exist);
         });
-        throw  new IllegalStateException();
 
-//        closeWebDriver();
+        closeWebDriver();
     }
 }

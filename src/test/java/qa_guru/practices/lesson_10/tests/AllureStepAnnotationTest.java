@@ -7,6 +7,8 @@ import qa_guru.practices.lesson_10.pages.MainPage;
 import qa_guru.practices.lesson_10.pages.RepositoryPage;
 import qa_guru.practices.lesson_10.pages.SearchResultPage;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 @Feature("Задачи в репозитории")
 public class AllureStepAnnotationTest {
     private static final String REPOSITORY = "eroshenkoam/allure-example";
@@ -35,5 +37,7 @@ public class AllureStepAnnotationTest {
         new RepositoryPage()
                 .openIssueTab()
                 .shouldSeeIssueWithNumber(ISSUE_NUMBER);
+
+        closeWebDriver();
     }
 }
