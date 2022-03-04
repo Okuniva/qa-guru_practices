@@ -2,7 +2,8 @@ package qa_guru.practices.lesson_5.pages.components;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class CalendarComponent {
     public static void setDate(String day, String month, String year) {

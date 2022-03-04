@@ -11,6 +11,11 @@ public class SimpleTest {
         System.out.println("BeforeAll");
     }
 
+    @AfterAll
+    static void afterAll() {
+        System.out.println("AfterAll");
+    }
+
     @BeforeEach
     void setUp() {
         System.out.println("BeforeEach");
@@ -19,11 +24,6 @@ public class SimpleTest {
     @AfterEach
     void endEach() {
         System.out.println("AfterEach");
-    }
-
-    @AfterAll
-    static void afterAll() {
-        System.out.println("AfterAll");
     }
 
     @Test

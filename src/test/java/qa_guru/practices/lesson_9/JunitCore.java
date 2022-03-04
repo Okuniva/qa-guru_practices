@@ -6,9 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import static java.util.Objects.requireNonNull;
 
 public class JunitCore {
     public static void main(String[] args) throws Exception {
@@ -28,18 +25,18 @@ public class JunitCore {
             AfterEach afterEachAnnotation = method.getAnnotation(AfterEach.class);
             AfterAll afterAllAnnotation = method.getAnnotation(AfterAll.class);
 
-            if(beforeAllAnnotation != null) beforeAll = method;
-            if(beforeEachAnnotation != null) beforeEach = method;
-            if(testAnnotation != null) tests.add(method);
-            if(afterEachAnnotation != null) afterEach = method;
-            if(afterAllAnnotation != null) afterAll = method;
+            if (beforeAllAnnotation != null) beforeAll = method;
+            if (beforeEachAnnotation != null) beforeEach = method;
+            if (testAnnotation != null) tests.add(method);
+            if (afterEachAnnotation != null) afterEach = method;
+            if (afterAllAnnotation != null) afterAll = method;
         }
-        if(!tests.isEmpty()) {
-            if(beforeAll != null) beforeAll.invoke(simpleTestClass.getConstructor().newInstance());
+        if (!tests.isEmpty()) {
+            if (beforeAll != null) beforeAll.invoke(simpleTestClass.getConstructor().newInstance());
 
-            for(Method test : tests) {
+            for (Method test : tests) {
                 try {
-                    if(beforeEach != null) {
+                    if (beforeEach != null) {
                         try {
                             beforeEach.invoke(simpleTestClass.getConstructor().newInstance());
                         } catch (InvocationTargetException e) {
@@ -59,7 +56,7 @@ public class JunitCore {
                 }
                 System.out.println("JunitCore_LOG: Test passed: " + test.getName());
 
-                if(afterEach != null) {
+                if (afterEach != null) {
                     try {
                         afterEach.invoke(simpleTestClass.getConstructor().newInstance());
                     } catch (InvocationTargetException e) {
@@ -67,7 +64,7 @@ public class JunitCore {
                     }
                 }
             }
-            if(afterAll != null) afterAll.invoke(simpleTestClass.getConstructor().newInstance());
+            if (afterAll != null) afterAll.invoke(simpleTestClass.getConstructor().newInstance());
         }
     }
 }

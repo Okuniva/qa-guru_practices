@@ -1,6 +1,5 @@
 package qa_guru.practices.lesson_5.pages;
 
-import org.openqa.selenium.Keys;
 import qa_guru.practices.lesson_5.pages.components.CalendarComponent;
 
 import static com.codeborne.selenide.CollectionCondition.size;

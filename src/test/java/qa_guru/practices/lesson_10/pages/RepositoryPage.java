@@ -1,14 +1,9 @@
 package qa_guru.practices.lesson_10.pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 

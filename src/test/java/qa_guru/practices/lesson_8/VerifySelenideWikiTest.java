@@ -36,7 +36,7 @@ public class VerifySelenideWikiTest {
                         "    $(\"#second\").should(visible).click(); " +
                         "  } " +
                         "}")
-                );
+        );
 
         closeWebDriver();
     }
