@@ -25,7 +25,7 @@ public class TextBoxTest {
     }
 
     @ParameterizedTest()
-    @ValueSource(strings = { "@gmail.com", " @gmail.com", "test@@gmail.com", "test@gmailcom", "test@gmail.c", "test+men@gmail.com" })
+    @ValueSource(strings = {"@gmail.com", " @gmail.com", "test@@gmail.com", "test@gmailcom", "test@gmail.c", "test+men@gmail.com"})
     void negativeEmailsTest(String email) {
         open("/text-box");
 

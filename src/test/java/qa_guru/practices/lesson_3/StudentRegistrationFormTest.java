@@ -89,7 +89,7 @@ public class StudentRegistrationFormTest {
                 textCaseSensitive("Picture " + photo),
                 textCaseSensitive("Address " + address),
                 textCaseSensitive("State and City " + state + " " + city)
-                );
+        );
         $("#closeLargeModal").click();
         $(".table-responsive").shouldNotBe(visible);
     }

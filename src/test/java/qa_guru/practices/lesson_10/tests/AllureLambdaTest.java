@@ -1,13 +1,12 @@
 package qa_guru.practices.lesson_10.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.addAttachment;
@@ -39,8 +38,7 @@ public class AllureLambdaTest {
         step("Проверяем что существует Issue с номером " + ISSUE_NUMBER, () -> {
             $(withText("#68")).should(exist);
         });
-        throw  new IllegalStateException();
 
-//        closeWebDriver();
+        closeWebDriver();
     }
 }
