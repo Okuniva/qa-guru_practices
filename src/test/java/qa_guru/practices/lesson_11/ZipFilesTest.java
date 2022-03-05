@@ -37,7 +37,7 @@ public class ZipFilesTest {
     }
 
     void createZipOutFile(List<String> srcFiles, String resultFileName) throws IOException {
-        try (FileOutputStream fos = new FileOutputStream(projectResourcePath + resultFileName);
+        try (FileOutputStream fos = new FileOutputStream(systemResoursePath + resultFileName);
              ZipOutputStream zipOut = new ZipOutputStream(fos)) {
             for (String srcFile : srcFiles) {
                 try(FileInputStream fis = new FileInputStream(srcFile)) {
