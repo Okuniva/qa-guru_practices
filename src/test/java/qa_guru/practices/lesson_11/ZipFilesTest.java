@@ -55,13 +55,13 @@ public class ZipFilesTest {
     }
 
     void verifyZipFile(String fileName) throws IOException, CsvException {
-        ZipFile zipFile = new ZipFile(systemResoursePath + fileName);
+        ZipFile zipFile = new ZipFile(projectResourcePath + fileName);
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
         while(entries.hasMoreElements()){
             ZipEntry entry = entries.nextElement();
-
             if (entry.getName().endsWith(".xls")) {
                 try (InputStream is = zipFile.getInputStream(entry)) {
+
                     XLS xls = new XLS(is);
                     assertThat(xls.excel
                             .getSheetAt(0)
