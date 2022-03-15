@@ -1,6 +1,5 @@
 package qa_guru.practices.lesson_9;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.CollectionCondition.*;
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -65,7 +64,7 @@ public class TextBoxTest {
 
     @ParameterizedTest()
     @MethodSource("provideCheckboxSelectExpResultMessage")
-    void checkboxTest(String[] checkboxs, String[] result) {
+    void checkboxTest(String[] checkboxes, String[] result) {
         open("/checkbox");
         // expand Home
         $$(".rct-icon-expand-close").shouldHave(size(1)).get(0).click();
@@ -86,7 +85,7 @@ public class TextBoxTest {
         // expand Office
         thirdTreeCheckboxLevel.get(1).click();
 
-        for (String checkbox : checkboxs) {
+        for (String checkbox : checkboxes) {
             $(byText(checkbox)).click();
         }
 
