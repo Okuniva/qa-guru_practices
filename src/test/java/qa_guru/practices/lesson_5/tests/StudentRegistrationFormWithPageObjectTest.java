@@ -2,6 +2,7 @@ package qa_guru.practices.lesson_5.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import qa_guru.practices.lesson_5.pages.StudentRegistrationFormPage;
@@ -25,8 +26,8 @@ public class StudentRegistrationFormWithPageObjectTest {
     String state = "NCR";
     String city = "Gurgaon";
 
-    @BeforeEach
-    void setUp() {
+    @BeforeAll
+    static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
