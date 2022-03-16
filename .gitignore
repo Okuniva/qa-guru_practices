@@ -38,3 +38,6 @@ target/
 /gradlew.bat
 .todo
 *.properties
+
+# Resourses
+!src/test/resources/output.zip
