@@ -22,10 +22,6 @@ public class ZipFilesTest {
 
     @Test
     void zipFilesTest() throws IOException, CsvException {
-        verifyZipFile();
-    }
-
-    void verifyZipFile() throws IOException, CsvException {
         ZipFile zipFile = new ZipFile(projectResourcePath + "output.zip");
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
         while(entries.hasMoreElements()){
