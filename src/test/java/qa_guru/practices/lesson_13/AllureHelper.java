@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_12;
+package qa_guru.practices.lesson_13;
 
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;

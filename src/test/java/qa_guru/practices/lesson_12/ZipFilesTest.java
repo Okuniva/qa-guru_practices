@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_11;
+package qa_guru.practices.lesson_12;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;

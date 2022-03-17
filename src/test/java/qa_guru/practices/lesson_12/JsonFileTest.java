@@ -1,9 +1,9 @@
-package qa_guru.practices.lesson_11;
+package qa_guru.practices.lesson_12;
 
 
 import io.qameta.allure.internal.shadowed.jackson.databind.*;
 import org.junit.jupiter.api.Test;
-import qa_guru.practices.lesson_11.data.Squads;
+import qa_guru.practices.lesson_12.data.Squads;
 
 import java.io.IOException;
 import java.io.InputStream;

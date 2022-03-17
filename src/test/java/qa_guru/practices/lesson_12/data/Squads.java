@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_11.data;
+package qa_guru.practices.lesson_12.data;
 
 import java.util.List;
 
