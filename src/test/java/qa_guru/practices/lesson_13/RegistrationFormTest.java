@@ -23,8 +23,8 @@ public class RegistrationFormTest {
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
         Configuration.fileDownload = FOLDER;
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        Configuration.remote = "http://localhost:4444/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+//        Configuration.remote = "http://localhost:4444/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
