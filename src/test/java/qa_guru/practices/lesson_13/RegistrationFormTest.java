@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.FileDownloadMode.FOLDER;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -21,6 +22,7 @@ public class RegistrationFormTest {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
+        Configuration.fileDownload = FOLDER;
 //        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         Configuration.remote = "http://localhost:4444/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -31,10 +33,10 @@ public class RegistrationFormTest {
 
     @AfterEach
     void tearDown() {
-//        AllureHelper.screenshotAs("Last screenshot");
-//        AllureHelper.pageSource();
-//        AllureHelper.browserConsoleLogs();
-//        AllureHelper.addVideo();
+        AllureHelper.screenshotAs("Last screenshot");
+        AllureHelper.pageSource();
+        AllureHelper.browserConsoleLogs();
+        AllureHelper.addVideo();
         closeWebDriver();
     }
 
@@ -74,10 +76,6 @@ public class RegistrationFormTest {
         $("#hobbiesWrapper").find(byText(hobbies[0])).click();
         $("#hobbiesWrapper").find(byText(hobbies[1])).click();
 
-//        // image is free to use from https://www.pexels.com/photo/black-and-white-portrait-of-woman-with-freckles-laughing-10724233/
-//        String photo = "pexels-photo-10724233.jpeg";
-//        $("#uploadPicture").uploadFromClasspath(photo);
-
         String address = "399 Jennings Lane Brooklyn, NY 11221";
         $("#currentAddress").scrollIntoView(true).setValue(address);
 
@@ -100,7 +98,6 @@ public class RegistrationFormTest {
                 textCaseSensitive("Date of Birth " + day + " " + month + "," + year),
                 textCaseSensitive("Subjects " + subjects[0] + ", " + subjects[1]),
                 textCaseSensitive("Hobbies " + hobbies[0] + ", " + hobbies[1]),
-//                textCaseSensitive("Picture " + photo),
                 textCaseSensitive("Address " + address),
                 textCaseSensitive("State and City " + state + " " + city)
         );
