@@ -28,6 +28,7 @@ public class BaseTestFixture {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+//        System.out.println("Set up configuration: " + ); // ToDo add print all config
     }
 
     @BeforeEach

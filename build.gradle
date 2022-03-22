@@ -18,7 +18,6 @@ def allureVersion = "2.17.3",
 allure {
     adapter {
         aspectjWeaver.set(true)
-        autoconfigure.set(true)
         frameworks {
             junit5 {
                 adapterVersion.set(allureVersion)
@@ -78,7 +77,7 @@ tasks.withType(Test) {
     }
 }
 
-task properties_test(type: Test) {
+task e2e_test(type: Test) {
     useJUnitPlatform{
         includeTags "E2E"
     }
