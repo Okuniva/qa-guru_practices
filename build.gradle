@@ -88,3 +88,9 @@ task smoke_test(type: Test) {
         includeTags "Smoke"
     }
 }
+
+task allure_notifi_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "allure_notifi_test"
+    }
+}
