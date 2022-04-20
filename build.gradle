@@ -44,6 +44,9 @@ dependencies {
     // Allure
     testImplementation("io.qameta.allure:allure-selenide:$allureVersion")
 
+    // Owner
+    testImplementation("org.aeonbits.owner:owner:1.0.12")
+
     // Asserts
     testImplementation('org.assertj:assertj-core:3.22.0')
 
