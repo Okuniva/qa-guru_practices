@@ -15,7 +15,7 @@ public class AllureStepAnnotationTest {
     private static final int ISSUE_NUMBER = 68;
 
     @Test
-    @Owner("valeev_a_a")
+    @Owner("Valeev_A_A")
     @Severity(SeverityLevel.BLOCKER)
     @Story("Создание новой задачи")
     @DisplayName("Проверка отображения Issue для не авторизованного пользователя")
