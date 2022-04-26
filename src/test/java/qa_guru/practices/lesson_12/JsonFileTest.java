@@ -1,7 +1,7 @@
 package qa_guru.practices.lesson_12;
 
 
-import io.qameta.allure.internal.shadowed.jackson.databind.*;
+import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import qa_guru.practices.lesson_12.data.Squads;
 

@@ -6,7 +6,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -24,7 +27,7 @@ public class ZipFilesTest {
     void zipFilesTest() throws IOException, CsvException {
         ZipFile zipFile = new ZipFile(projectResourcePath + "output.zip");
         Enumeration<? extends ZipEntry> entries = zipFile.entries();
-        while(entries.hasMoreElements()){
+        while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
             if (entry.getName().endsWith(".xls")) {
                 try (InputStream is = zipFile.getInputStream(entry)) {

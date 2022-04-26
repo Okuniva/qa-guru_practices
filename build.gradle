@@ -94,19 +94,19 @@ tasks.withType(Test) {
 }
 
 task e2e_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags "E2E"
     }
 }
 
 task smoke_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags "Smoke"
     }
 }
 
 task allure_notifi_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags "allure_notifi_test"
     }
 }

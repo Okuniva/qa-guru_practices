@@ -14,7 +14,6 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
 
 public class CheckBoxTest {
     @BeforeAll
@@ -22,6 +21,22 @@ public class CheckBoxTest {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
+    }
+
+    private static Stream<Arguments> provideCheckboxSelectExpResultMessage() {
+        return Stream.of(
+                Arguments.of(new String[]{"Home"},
+                        new String[]{"home", "desktop", "notes", "commands", "documents",
+                                "workspace", "react", "angular", "veu", "office", "public", "private", "classified",
+                                "general", "downloads", "wordFile", "excelFile"}),
+                Arguments.of(new String[]{"Desktop"},
+                        new String[]{"desktop", "notes", "commands",}),
+                Arguments.of(new String[]{"Desktop", "WorkSpace", "Downloads"},
+                        new String[]{"desktop", "notes", "commands", "workspace", "react", "angular", "veu", "downloads",
+                                "wordFile", "excelFile"}),
+                Arguments.of(new String[]{"WorkSpace", "Public", "General", "Excel File.doc"},
+                        new String[]{"workspace", "react", "angular", "veu", "public", "general", "excelFile"})
+        );
     }
 
     @AfterEach
@@ -60,21 +75,5 @@ public class CheckBoxTest {
         for (String expText : result) {
             $("#result").shouldHave(text(expText));
         }
-    }
-
-    private static Stream<Arguments> provideCheckboxSelectExpResultMessage() {
-        return Stream.of(
-                Arguments.of(new String[] {"Home"},
-                        new String[] {"home", "desktop", "notes","commands", "documents",
-                                "workspace", "react", "angular", "veu", "office", "public", "private", "classified",
-                                "general", "downloads", "wordFile", "excelFile"}),
-                Arguments.of(new String[] {"Desktop"},
-                        new String[] {"desktop", "notes", "commands", }),
-                Arguments.of(new String[] {"Desktop", "WorkSpace", "Downloads"},
-                        new String[] {"desktop", "notes", "commands", "workspace", "react", "angular", "veu", "downloads",
-                                "wordFile", "excelFile"}),
-                Arguments.of(new String[] {"WorkSpace", "Public", "General", "Excel File.doc"},
-                        new String[] {"workspace", "react", "angular", "veu", "public", "general", "excelFile"})
-        );
     }
 }
