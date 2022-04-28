@@ -10,6 +10,7 @@ import static com.codeborne.pdftest.assertj.Assertions.assertThat;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 @Feature("Api Tests")
 @Owner("Valeev_A_A")
@@ -59,4 +60,26 @@ public class ReqresTests {
                 .body("error", is("Missing password"));
 
     }
+
+
+    @Test
+    @Story("Authorization")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("put name and job to user2")
+    void putUserTest() {
+        String userData = "{ \"name\": \"morpheus\", \"job\": \"zion resident\" }";
+
+        given()
+                .contentType(ContentType.JSON)
+                .body(userData)
+                .when()
+                .put("https://reqres.in/api/user/2")
+                .then()
+                .statusCode(200)
+                .body("name", is("morpheus"),
+                        "job", is("zion resident"),
+                        "updatedAt", notNullValue());
+    }
+
+
 }
