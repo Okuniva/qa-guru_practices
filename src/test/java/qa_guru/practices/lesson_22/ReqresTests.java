@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static com.codeborne.pdftest.assertj.Assertions.assertThat;
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -61,7 +60,6 @@ public class ReqresTests {
 
     }
 
-
     @Test
     @Story("Authorization")
     @Severity(SeverityLevel.CRITICAL)
@@ -79,6 +77,16 @@ public class ReqresTests {
                 .body("name", is("morpheus"),
                         "job", is("zion resident"),
                         "updatedAt", notNullValue());
+    }
+
+    @Test
+    @Story("UserSetting")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("delete user on api/user/2")
+    void deleteUserTest() {
+        delete("https://reqres.in/api/user/2")
+                .then()
+                .statusCode(204);
     }
 
 
