@@ -1,7 +1,9 @@
 package qa_guru.practices.lesson_22;
 
 import io.qameta.allure.*;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,12 +16,18 @@ import static org.hamcrest.Matchers.notNullValue;
 @Feature("Api Tests")
 @Owner("Valeev_A_A")
 public class ReqresTests {
+    @BeforeAll
+    static void setUp() {
+        RestAssured.baseURI = "https://reqres.in/";
+    }
+
     @Test
     @Story("Authorization")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify get user 2 have id = 2, email = 'janet.weaver@reqres.in'")
     void getSingleUserTest() {
-        get("https://reqres.in/api/users/2")
+        get("api/users/2")
+                .prettyPeek()
                 .then()
                 .statusCode(200)
                 .body("data.id", is(2),
@@ -31,7 +39,7 @@ public class ReqresTests {
     @Story("MainProducts")
     @Severity(SeverityLevel.CRITICAL)
     void getResourceListTest() {
-        List<String> resourcesNames = get("https://reqres.in/api/unknown")
+        List<String> resourcesNames = get("api/unknown")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -53,7 +61,7 @@ public class ReqresTests {
                 .contentType(ContentType.JSON)
                 .body(authorizedData)
                 .when()
-                .post("https://reqres.in/api/register")
+                .post("api/register")
                 .then()
                 .statusCode(400)
                 .body("error", is("Missing password"));
@@ -71,7 +79,7 @@ public class ReqresTests {
                 .contentType(ContentType.JSON)
                 .body(userData)
                 .when()
-                .put("https://reqres.in/api/user/2")
+                .put("api/user/2")
                 .then()
                 .statusCode(200)
                 .body("name", is("morpheus"),
@@ -84,7 +92,7 @@ public class ReqresTests {
     @Severity(SeverityLevel.NORMAL)
     @Description("delete user on api/user/2")
     void deleteUserTest() {
-        delete("https://reqres.in/api/user/2")
+        delete("api/user/2")
                 .then()
                 .statusCode(204);
     }
