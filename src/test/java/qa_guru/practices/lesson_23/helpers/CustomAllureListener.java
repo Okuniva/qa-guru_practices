@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_23.examples.helpers;
+package qa_guru.practices.lesson_23.helpers;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 
