@@ -41,4 +41,4 @@ target/
 
 # Resourses
 !src/test/resources/output.zip
-!resources/config/demowebshop/app.properties
+!resources/config/local.properties
