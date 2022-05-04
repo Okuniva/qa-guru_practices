@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_23.practice;
+package qa_guru.practices.lesson_23.examples.tests;
 
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Owner;
@@ -21,10 +21,10 @@ import static io.qameta.allure.Allure.step;
 public class AuthTests extends TestBase {
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Successful authorization")
+    @DisplayName("Successful authorization (UI)")
     void loginTest() {
         step("Open login page", () -> {
-                open("");
+                open(":5100/");
                 $(".esh-identity-name").as("login btn").click();
         });
 

@@ -1,4 +1,4 @@
-package qa_guru.practices.lesson_23.practice;
+package qa_guru.practices.lesson_23.examples.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -17,9 +17,9 @@ public class TestBase {
     static void configureBaseUrl() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
-        RestAssured.baseURI = "http://docker.for.mac.localhost:5100";
+        RestAssured.baseURI = "http://docker.for.mac.localhost";
 
-        Configuration.baseUrl = "http://docker.for.mac.localhost:5100";
+        Configuration.baseUrl = "http://docker.for.mac.localhost";
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.fileDownload = FOLDER;

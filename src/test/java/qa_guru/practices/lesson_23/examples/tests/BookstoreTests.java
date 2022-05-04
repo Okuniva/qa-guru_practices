@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static qa_guru.practices.lesson_23.helpers.CustomAllureListener.withCustomTemplates;
+import static qa_guru.practices.lesson_23.helpers.AllureRestAssuredFilter.withCustomTemplates;
 
 public class BookstoreTests {
     @BeforeAll
