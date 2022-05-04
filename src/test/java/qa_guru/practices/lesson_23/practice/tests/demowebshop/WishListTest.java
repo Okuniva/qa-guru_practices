@@ -33,7 +33,7 @@ public class WishListTest extends TestBase {
     }
 
     @Test
-    @Tag("demowebshop")
+//    @Tag("demowebshop")
     void addGoodsToWishlistTest() {
         step("Get cookie by api and set it to browser", () -> {
             String authorizationCookie =

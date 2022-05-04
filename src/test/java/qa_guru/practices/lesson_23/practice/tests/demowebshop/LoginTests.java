@@ -42,7 +42,7 @@ public class LoginTests extends TestBase {
     }
 
     @Test
-    @Tag("demowebshop")
+//    @Tag("demowebshop")
     @DisplayName("Successful authorization to some demowebshop (API + UI)")
     void loginWithCookieTest() {
         step("Get cookie by api and set it to browser", () -> {
