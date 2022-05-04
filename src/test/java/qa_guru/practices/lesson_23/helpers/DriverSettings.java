@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import qa_guru.practices.lesson_23.practice.config.Project;
+import qa_guru.practices.lesson_23.practice.config.demowebshop.App;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,7 @@ public class DriverSettings {
         Configuration.browser = Project.config.browser();
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();
-//        Configuration.baseUrl = App.config.webUrl();
+        Configuration.baseUrl = App.config.webUrl();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
