@@ -112,3 +112,8 @@ task allure_notifi_test(type: Test) {
         includeTags "allure_notifi_test"
     }
 }
+task demowebshop(type: Test) {
+    useJUnitPlatform {
+        includeTags "demowebshop"
+    }
+}
