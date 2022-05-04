@@ -10,7 +10,7 @@ public class Project {
     }
 
     public static boolean isRemoteWebDriver() {
-        return !config.remoteDriverUrl().equals("");
+        return !config.remote().equals("");
     }
 
     public static boolean isVideoOn() {

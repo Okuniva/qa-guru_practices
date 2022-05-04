@@ -4,6 +4,8 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import qa_guru.practices.lesson_23.practice.config.Project;
+import qa_guru.practices.lesson_23.practice.config.ProjectConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -38,7 +40,7 @@ public class AllureAttachments {
         URL videoUrl = DriverUtils.getVideoUrl(sessionId);
         if (videoUrl != null) {
             InputStream videoInputStream = null;
-            sleep(1000);
+            sleep(Project.config.videoWait());
 
             for (int i = 0; i < 10; i++) {
                 try {
