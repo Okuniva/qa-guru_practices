@@ -79,7 +79,7 @@ public class WishListTest extends TestBase {
             assertThat(response.getSuccess()).isEqualTo(true);
             assertThat(response.getMessage()).isEqualTo("The product has been added to your <a href=\"/wishlist\">wishlist</a>");
             Integer actualWishListSize = NumberUtils.toInt(response
-                    .getUpdatetopwishlistsectionhtml()
+                    .getUpdateTopWishListSectionHtml()
                     .replaceAll("[^0-9.]", ""));
             assertThat(actualWishListSize).isGreaterThanOrEqualTo(1);
         });
