@@ -73,7 +73,7 @@ public class WishListTest extends TestBase {
                     .then()
                     .log().all()
                     .statusCode(200)
-                    .body(matchesJsonSchemaInClasspath("shemas/add_to_wishlist_response_shema.json"))
+                    .body(matchesJsonSchemaInClasspath("schemas/add_to_wishlist_response_schema.json"))
                     .extract().as(AddToWishListResponse.class);
 
             assertThat(response.getSuccess()).isEqualTo(true);

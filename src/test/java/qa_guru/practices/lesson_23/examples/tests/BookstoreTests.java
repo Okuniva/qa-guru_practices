@@ -110,7 +110,7 @@ public class BookstoreTests {
                 .log().status()
                 .log().body()
                 .statusCode(200)
-                .body(matchesJsonSchemaInClasspath("shemas/generateToken_response_shema.json"))
+                .body(matchesJsonSchemaInClasspath("schemas/generateToken_response_schema.json"))
                 .body("status", is("Success"))
                 .body("result", is("User authorized successfully."))
                 .body("token.size()", greaterThan(10));
