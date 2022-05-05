@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 import qa_guru.practices.lesson_23.helpers.AllureRestAssuredFilter;
 import qa_guru.practices.lesson_23.practice.config.demowebshop.App;
+import qa_guru.practices.lesson_23.practice.models.AddToWishListResponse;
 import qa_guru.practices.lesson_23.practice.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.*;
@@ -33,7 +34,7 @@ public class WishListTest extends TestBase {
     }
 
     @Test
-//    @Tag("demowebshop")
+    @Tag("demowebshop")
     void addGoodsToWishlistTest() {
         step("Get cookie by api and set it to browser", () -> {
             String authorizationCookie =
@@ -59,25 +60,26 @@ public class WishListTest extends TestBase {
 
 
         step("Add goods to wishlist by api", () -> {
-            ValidatableResponse response = given()
+            AddToWishListResponse response = given()
                     .filter(AllureRestAssuredFilter.withCustomTemplates())
                     .cookie("Nop.customer=88f590c6-59e9-4a55-b243-7395b35f0ce2;")
                     .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                     .body("product_attribute_80_2_37=112" +
                             "&product_attribute_80_1_38=115" +
                             "&addtocart_80.EnteredQuantity=1")
+                    .log().all()
                     .when()
                     .post("/addproducttocart/details/80/2")
                     .then()
                     .log().all()
                     .statusCode(200)
-                    .body("success", is(true))
-                    .body("message", is("The product has been added to your " +
-                            "<a href=\"/wishlist\">wishlist</a>"));
+                    // ToDo add verify json schema
+                    .extract().as(AddToWishListResponse.class);
 
+            assertThat(response.getSuccess()).isEqualTo(true);
+            assertThat(response.getMessage()).isEqualTo("The product has been added to your <a href=\"/wishlist\">wishlist</a>");
             Integer actualWishListSize = NumberUtils.toInt(response
-                    .extract().path("updatetopwishlistsectionhtml")
-                    .toString()
+                    .getUpdatetopwishlistsectionhtml()
                     .replaceAll("[^0-9.]", ""));
             assertThat(actualWishListSize).isGreaterThanOrEqualTo(1);
         });
