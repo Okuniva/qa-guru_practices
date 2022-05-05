@@ -24,8 +24,8 @@ public class AuthTests extends TestBase {
     @DisplayName("Successful authorization (UI)")
     void loginTest() {
         step("Open login page", () -> {
-                open(":5100/");
-                $(".esh-identity-name").as("login btn").click();
+            open(":5100/");
+            $(".esh-identity-name").as("login btn").click();
         });
 
         assertThat(WebDriverRunner.url()).contains("http://docker.for.mac.localhost:5105/Account/Login?ReturnUrl=");

@@ -3,7 +3,6 @@ package qa_guru.practices.lesson_23.practice.tests.demowebshop;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Story;
 import io.restassured.RestAssured;
-import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
@@ -14,7 +13,8 @@ import qa_guru.practices.lesson_23.practice.config.demowebshop.App;
 import qa_guru.practices.lesson_23.practice.models.AddToWishListResponse;
 import qa_guru.practices.lesson_23.practice.tests.TestBase;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -23,7 +23,6 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 @Story("WishList tests")
 public class WishListTest extends TestBase {

@@ -5,7 +5,6 @@ import io.qameta.allure.Attachment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import qa_guru.practices.lesson_23.practice.config.Project;
-import qa_guru.practices.lesson_23.practice.config.ProjectConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.*;
 import static qa_guru.practices.lesson_23.helpers.AllureRestAssuredFilter.withCustomTemplates;
 
 public class BookstoreTests {
