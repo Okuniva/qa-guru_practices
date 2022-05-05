@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "message": {
+      "type": "string"
+    },
+    "updatetopwishlistsectionhtml": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "success",
+    "message",
+    "updatetopwishlistsectionhtml"
+  ]
+}

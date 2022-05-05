@@ -21,6 +21,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -73,7 +74,7 @@ public class WishListTest extends TestBase {
                     .then()
                     .log().all()
                     .statusCode(200)
-                    // ToDo add verify json schema
+                    .body(matchesJsonSchemaInClasspath("shemas/add_to_wishlist_response_shema.json"))
                     .extract().as(AddToWishListResponse.class);
 
             assertThat(response.getSuccess()).isEqualTo(true);
