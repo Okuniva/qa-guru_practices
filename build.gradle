@@ -50,7 +50,7 @@ dependencies {
 
     // Rest Assured
     testImplementation("io.rest-assured:rest-assured:$restAssured")
-    testImplementation( "io.rest-assured:json-schema-validator:$restAssured")
+    testImplementation("io.rest-assured:json-schema-validator:$restAssured")
     testImplementation("io.qameta.allure:allure-rest-assured:$allureVersion")
 
     // Asserts
